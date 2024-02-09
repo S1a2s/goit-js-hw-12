@@ -72,7 +72,7 @@ async function handleSearch(event) {
     params.imageList.innerHTML = createMarkup(response.hits);
     gallery.refresh();
 
-    if (response.hits.length >= 40) {
+    if (response.hits.length >= 15) {
       addNextPageBtn();
     }
 
@@ -92,7 +92,7 @@ async function fetchImages() {
     image_type: 'photo',
     orientation: 'horizontal',
     safesearch: 'true',
-    per_page: 40,
+    per_page: 15,
   });
   const res = await axios.get(
     `${BASE_URL}/?${searchParams}&q=${searchValue}&page=${page}`
@@ -164,7 +164,7 @@ async function nextPage() {
   try {
     const res = await fetchImages();
 
-    if (page * 40 >= res.totalHits) {
+    if (page * 15 >= res.totalHits) {
       iziToast.show({
         title: '❕',
         theme: 'dark',
