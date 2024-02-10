@@ -1,11 +1,13 @@
 import axios from 'axios';
+import { fetchImages } from './js/pixabay-api';
+import { createMarkup } from './js/render-function';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import icon from '../src/img/octagon.svg';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import { fetchImages } from './js/pixabay-api';
-import { createMarkup } from './js/render-function';
+
+
 
 const params = {
   formSearch: document.querySelector('.form'),
