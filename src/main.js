@@ -54,7 +54,7 @@ async function handleSearch(event) {
   params.preload.classList.remove(hiddenClass);
 
   try {
-    const response = await fetchImages();
+    const response = await fetchImages(searchValue,page);
     if (response.hits.length === 0) {
       iziToast.show({
         iconUrl: icon,
@@ -111,7 +111,7 @@ async function nextPage() {
   page += 1;
 
   try {
-    const res = await fetchImages();
+    const res = await fetchImages(searchValue,page);
 
     if (page * 15 >= res.totalHits) {
       iziToast.show({
